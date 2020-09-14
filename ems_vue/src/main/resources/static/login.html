@@ -79,6 +79,7 @@
 			login: function () {
 				axios.post("http://localhost:8989/ems_vue/user/login",this.user).then(res =>{
 					if (res.data.status){
+						localStorage.setItem("user",JSON.stringify(res.data.user));
 						alert(res.data.msg+"点击确认，进入员工管理页面。");
 						location.href="/ems_vue/emplist.html";
 					}else{

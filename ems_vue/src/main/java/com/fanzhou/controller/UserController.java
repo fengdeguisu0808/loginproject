@@ -93,6 +93,7 @@ public class UserController {
         User existUser = userService.findUserByUser(user);
         if (existUser != null) {
             if (existUser.getPassword().equals(user.getUsername())) {
+                map.put("user",existUser);
                 return map;
             }
             map.put("status", false);
